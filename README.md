@@ -1,4 +1,4 @@
-scrambler.js
+scramble.js
 =========
 
 Scramble text in an image to make it unreadable.  This was originally created to scramble text in license plates found in public photos.
@@ -12,9 +12,9 @@ Scramble text in an image to make it unreadable.  This was originally created to
 ##Example
     <div id="scramberContainer"></div>
     
-    <script src="scrambler.js"></script>
+    <script src="scramble.js"></script>
     <script>
-      scrambler({
+      scramble({
         container: 'scramblerContainer',
         image: 'car.jpg',
         constrastThreshold: 100,
