@@ -22,3 +22,7 @@ Scramble text in an image to make it unreadable.  This was originally created to
         scrambleRadius: 10
       });
     </script>
+
+##Algorithm
+
+The text scrambling algorithm is actually fairly simple.  
