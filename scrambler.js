@@ -1,4 +1,11 @@
-var scrambler = function(config) {
+/*
+ * Created by Eric Rowell for a hackday project at LinkedIn
+ * scrambler.js uses HTML5 canvas to scan an image for text and then
+ * scrambles it so that it's unreadable.  Since this was built in one day,
+ * the algorithm, and the code itself, could be greatly enhanced.  But it works.
+ */
+
+ var scrambler = function(config) {
 var container = document.getElementById(config.container),
     imageSrc = config.image,
     constrastThreshold = config.constrastThreshold || 100,
