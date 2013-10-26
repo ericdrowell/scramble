@@ -12,6 +12,7 @@ Scramble text in an image to make it unreadable.  This was originally created to
 ##Example
     <div id="scramberContainer"></div>
     
+    <script src="scrambler.js"></script>
     <script>
       scrambler({
         container: 'scramblerContainer',
