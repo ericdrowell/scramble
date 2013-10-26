@@ -7,7 +7,7 @@ Scramble text in an image to make it unreadable.  This was originally created to
 
 ![alt text][logo]
 
-[logo]: https://github.com/ericdrowell/scrambler/blob/master/screenshot.png "scrambler.js screenshot"
+[logo]: https://raw.github.com/ericdrowell/scrambler/master/screenshot.png "scrambler.js screenshot"
 
 ##Example
     <div id="scramberContainer"></div>
