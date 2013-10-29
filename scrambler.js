@@ -13,8 +13,8 @@ var container = document.getElementById(config.container),
     scrambleRadius = config.scrambleRadius || 10,
     varianceRadius = config.varianceRadius || 4,
     image = new Image(),
-    imageWidth = 497,
-    imageHeight = 372,
+    imageWidth,
+    imageHeight,
     copyCanvas,
     copyContext,
     bwCanvas,
@@ -63,7 +63,8 @@ function applyBlackWhiteFilter() {
     var r = d[i];
     var g = d[i+1];
     var b = d[i+2];
-    var v = (0.2126*r + 0.7152*g + 0.0722*b >= constrastThreshold) ? 255 : 0;
+    var v = (0.2126*r + 0.7152*g + 0.0722*b >= 128) ? 255 : 0;
+    //var v = (0.2126*r  < constrastThreshold && 0.7152*g < constrastThreshold && 0.0722*b< constrastThreshold) ? 0 : 255;
     d[i] = d[i+1] = d[i+2] = v
   }
 
@@ -189,7 +190,9 @@ function addDom() {
   container.appendChild(finalCanvas);
 }
 function init() {
-  image.onload = function() {
+  image.onload = function(img) {
+    imageWidth = image.width;
+    imageHeight = image.height;
     onReady();
   };
   image.src = imageSrc;
