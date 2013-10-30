@@ -127,6 +127,7 @@ var scramble = function(config) {
     copyCanvas.width = image.width;
     copyCanvas.height = image.height;
     copyContext = copyCanvas.getContext('2d');
+    copyCanvas.className = 'copy';
 
     finalCanvas = document.createElement('canvas');
     finalCanvas.width = image.width;

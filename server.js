@@ -1,7 +1,8 @@
 var connect = require('connect'),
     fs = require('fs'),
     url = require('url'),
-    http = require('http');
+    http = require('http'),
+    scramble = require('./scramble.js');
 
 var app = connect()
   .use(connect.favicon())
@@ -13,8 +14,11 @@ var app = connect()
     var url_parts = url.parse(req.url),
         pathName = url_parts.pathname,
         img = fs.readFileSync(__dirname + pathName);
+
     res.writeHead(200, {'Content-Type': 'image/jpg' });
     res.end(img, 'binary');
+
   });
 
 http.createServer(app).listen(1337);
+
