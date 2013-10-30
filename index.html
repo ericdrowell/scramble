@@ -1,17 +1,23 @@
 <html>
+  <head>
+    <style>
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
   <body>
     <div id="scramblerContainer"></div>
 
     <script src="scrambler.js"></script>
     <script>
 
-    for (var n=1; n<=4; n++) {
+    for (var n=1; n<=7; n++) {
       scrambler({
         container: 'scramblerContainer',
         image: 'photos/car' + n + '.jpg',
-        constrastThreshold: 100,
-        varianceThreshold: 7,
-        varianceRadius: 4,
+        brightnessThreshold: 0.5,
+        colorVariance: 50,
         scrambleRadius: 10
       });
     }
