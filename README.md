@@ -7,32 +7,25 @@ Scramble text in an image to make it unreadable.  This was originally created to
 
 ![alt text][logo]
 
-[logo]: https://raw.github.com/ericdrowell/scrambler/master/screenshot.png "scrambler.js screenshot"
+[logo]: https://raw.github.com/ericdrowell/scramble/master/screenshot.png "scramble.js screenshot"
 
 ##Example
     <div id="scramberContainer"></div>
-    
+
     <script src="scramble.js"></script>
     <script>
       scramble({
-        container: 'scramblerContainer',
-        image: 'car.jpg',
-        constrastThreshold: 100,
-        varianceThreshold: 7,
-        varianceRadius: 4,
+        container: 'scrambleContainer',
+        image: 'photos/car.jpg',
+        brightnessRatioThreshold: 0.5,
         scrambleRadius: 10
       });
     </script>
 
 ##Algorithm
 
-The text scrambling algorithm is actually fairly simple (and could surely be improved).  It's done in four steps:
+To keep this project as light weight as possible, I decided to not use an OpenCV solution.  Instead, I tried several algorithms, and ultimately ended up on scrambling areas of the image that are white-ish.  This works because most license plates are white-ish, and if they're dark, they typically have white-ish text.  Typically, areas that are incorrectly scrambled (false positives) include highlights on the car, parking strips, and sign poles.
 
-1. the image is copied onto a canvas
-2. the image pixels are converted to black or white
-3. The black and white image is scanned for pixel variance, in which there's a lot of switching between black and white pixels.  This is a distinguishing feature of text in an image
-4. for every location found with a high pixel variance, scramble the pixels on the original image in that area.
-
-This version of the algorithm is certainly not perfect.  You can tell from the final image that some portions of the image are scrambled which are not text.  For my purposes, this was satisfactory.  If you'd like to improve on the algorithm, by all means, please do, and submit a pull request.
+If you'd like to improve on the algorithm, by all means, please do, and submit a pull request.
 
 

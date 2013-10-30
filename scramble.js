@@ -9,7 +9,6 @@ var scramble = function(config) {
   var container = document.getElementById(config.container),
       imageSrc = config.image,
       brightnessRatioThreshold = config.brightnessRatioThreshold || 0.5,
-      colorVarianceThreshold = config.colorVarianceThreshold || 50,
       scrambleRadius = config.scrambleRadius || 10,
       image = new Image(),
       imageWidth,
@@ -33,13 +32,10 @@ var scramble = function(config) {
             ai = ((imageWidth * ny) + nx) * 4 + 3;
 
         if (ri > 0 && ri < data.length) {
-
-
           data[ri] = r;
           data[gi] = g;
           data[bi] = b;
           data[ai] = 255;
-
         }
       }
     }
@@ -86,7 +82,6 @@ var scramble = function(config) {
 
     var threshold = getThreshold();
 
-
     // iterate over all pixels based on x and y coordinates
     for(var y = 0; y < imageHeight; y++) {
 
@@ -116,12 +111,6 @@ var scramble = function(config) {
     var cr = copyData[cri + offset];
     var cg = copyData[cgi + offset];
     var cb = copyData[cbi + offset];
-
-    var rgDiff = Math.abs(g- r);
-    var gbDiff = Math.abs(b - g);
-    var brDiff = Math.abs(r - b);
-
-    var colorVariance = Math.max(Math.max(rgDiff, gbDiff), brDiff);
 
     // if pixel is white-ish
     if (r > threshold
